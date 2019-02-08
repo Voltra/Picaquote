@@ -1,0 +1,21 @@
+{% extends layout() %}
+
+{% block title %}Picaquote{% endblock %}
+{% block tags %}quote{% endblock %}
+
+{% block js %}{% endblock %}
+{% block css %}{% endblock %}
+
+{% block body %}
+	<h1>Hello world!</h1><br/>
+	<h2>Great quotations coming</h2><br/>
+	<blockquote>
+		Here lies the stupidity of a single man, on a single website
+	</blockquote>
+
+	<br/> <br/>
+
+	<blockquote>
+		{{ quote }}
+	</blockquote>
+{% endblock %}

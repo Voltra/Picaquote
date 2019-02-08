@@ -4,8 +4,7 @@
   "description": "An application that uses Slim and Vue (with Twig)",
   "main": "index.js",
   "scripts": {
-    "setup": "npm run setupCLI && npm run setupJS && npm run setupPHP && npm run setupRoutes",
-    "setupRoutes": "source aliases.sh && dumpRouteLoader",
+    "setup": "npm run setupCLI && npm run setupJS && npm run setupPHP",
     "setupCLI": "go get -u github.com/turnitin/dbmate",
     "setupJS": "npm i",
     "setupPHP": "composer update && composer dump-autoload",

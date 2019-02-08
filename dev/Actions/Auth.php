@@ -56,7 +56,7 @@ class Auth extends Action{
 			//always sync in case of user hotswap
 			$this->container[$this->containerKey] = User::find($this->session->get($this->sessionKey));
 		else if($this->container->has($this->containerKey))
-			$this->session->set($this->sessionKey, $this->container[$this->containerKey]->id);
+			$this->session->set($this->sessionKey, $this->container->get($this->containerKey)->id);
 	}
 
 	/**
@@ -67,7 +67,8 @@ class Auth extends Action{
 	public function isLoggedIn(): bool{
 		$this->syncContainerAndSession();
 		return $this->container->has($this->containerKey)
-		&& !is_null($this->container->get($this->containerKey));
+		&& !empty($this->container->get($this->containerKey))
+		&& !is_null($this->container->get($this->container));
 	}
 
 	/**

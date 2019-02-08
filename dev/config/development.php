@@ -35,7 +35,7 @@ return [
 		"driver" => "mysql",
 		"host" => "localhost",
 		"port" => "3308",
-		"database" => "mvea",
+		"database" => "picaquote",
 		"username" => "root",
 		"password" => "",
 		"charset" => "utf8",

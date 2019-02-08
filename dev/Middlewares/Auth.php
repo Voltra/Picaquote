@@ -19,6 +19,13 @@ class Auth extends Middleware{
 	}
 
 	public function process(ServerRequestInterface $rq, Response $res, callable $next): ResponseInterface {
+		/*echo "<pre>";
+		foreach($this->container->session as $key => $value){
+			echo "{$key}: ";
+			print_r($value);
+		}
+		echo "</pre>";
+		die();*/
 		$response = $this->auth->loginfromRemember($rq, $res)->response;
 		return $next($rq, $response);
 	}
