@@ -1,12 +1,23 @@
 <?php
 
-use App\Filters\AdminFilter;
 use App\Filters\UserFilter;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use App\Filters\AdminFilter;
+use App\Models\User;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\App as SlimApp;
 
-$app->get("/admin", function(Request $rq, Response $res){
-	/** @var $this \Slim\Container */
+
+/**@var SlimApp $app*/
+$app->get("/admin", function(ServerRequestInterface $rq, ResponseInterface $res): ResponseInterface{
+	/**
+	 * @var \Slim\Container $this
+	 * @var User $user
+	 */
+	$user = $this->get("user");
+	return $this->view->render($res, "admin/dashboard.twig", [
+		"user" => $user,
+	]);
 })->setName("admin.dashboard")
 ->add(
 	UserFilter::from($app->getContainer())

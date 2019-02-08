@@ -1,15 +1,14 @@
 <?php
 
 use App\Filters\VisitorFilter;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\App as SlimApp;
 
-$app->get("/register", function(Request $rq, Response $res){
-	/** @var $this \Slim\Container */
+
+/**@var SlimApp $app*/
+$app->get("/register", function(ServerRequestInterface $rq, ResponseInterface $res): ResponseInterface{
+	/**@var \Slim\Container $this*/
+	return $this->view->render($res, "auth/register.twig", []);
 })->setName("register")
-->add(VisitorFilter::from($app->getContainer()));
-
-$app->post("/register", function(Request $rq, Response $res){
-	/** @var $this \Slim\Container */
-})->setName("register.post")
 ->add(VisitorFilter::from($app->getContainer()));
