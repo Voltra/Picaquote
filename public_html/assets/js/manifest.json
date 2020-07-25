@@ -1,0 +1,8 @@
+{
+  "0.chunk.js": "/assets/js/0.chunk.js",
+  "1.chunk.js": "/assets/js/1.chunk.js",
+  "admin/dashboard.js": "/assets/js/admin/dashboard.bundle.js",
+  "home.js": "/assets/js/home.bundle.js",
+  "login.js": "/assets/js/login.bundle.js",
+  "register.js": "/assets/js/register.bundle.js"
+}

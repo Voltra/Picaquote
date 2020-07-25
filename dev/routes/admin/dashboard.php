@@ -2,6 +2,7 @@
 
 use App\Filters\UserFilter;
 use App\Filters\AdminFilter;
+use App\Models\Quote;
 use App\Models\User;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -15,8 +16,10 @@ $app->get("/admin", function(ServerRequestInterface $rq, ResponseInterface $res)
 	 * @var User $user
 	 */
 	$user = $this->get("user");
+	$quotes = Quote::all();
 	return $this->view->render($res, "admin/dashboard.twig", [
 		"user" => $user,
+		"quotes" => $quotes
 	]);
 })->setName("admin.dashboard")
 ->add(

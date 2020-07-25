@@ -7,4 +7,21 @@
 {% block css %}{% endblock %}
 
 {% block body %}
+	<form method="POST" action="{{ path_for('register.post') }}">
+		<label for="username">Username</label>
+		<input type="text" name="username" placeholder="Username"/>
+
+		<label for="password">Password</label>
+		<input type="password" name="password" placeholder="Password"/>
+
+		<label for="pconfirm">Confirm your password</label>
+		<input type="password" name="pconfirm" placeholder="Password"/>
+
+		<label for="remember">Remember me?</label>
+		<input type="checkbox" name="remember"/>
+
+		<button type="submit">Register</button>
+
+		{{ csrf_input() }}
+	</form>
 {% endblock %}

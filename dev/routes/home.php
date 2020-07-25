@@ -12,8 +12,9 @@ use Slim\Http\Response;
 $app->get("/", function(Request $rq, Response $res): ResponseInterface{
 	/** @var $this \Slim\Container */
 
-	$quote = "Picarougne";
+	/*$random = Quote::random();
+	$quote = !is_null($random) ? $random->content : "Whoops";*/
 	return $this->view->render($res, "home.twig", [
-		"quote" => Quote::random() ?? "Whoops"
+		"quote" => Quote::random()
 	]);
 })->setName("home");

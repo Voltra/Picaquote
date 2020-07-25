@@ -2,6 +2,7 @@
 
 use App\Helpers\Path;
 use App\Helpers\TwigExtensions\CsrfExtension;
+use App\Helpers\TwigExtensions\ManifestExtension;
 use App\Helpers\TwigExtensions\PathExtension;
 use Knlv\Slim\Views\TwigMessages as TwigFlash;
 use Slim\Container;
@@ -20,5 +21,6 @@ return function(Container $c){
 	$view->addExtension(new TwigFlash($c->flash));
 	$view->addExtension(new CsrfExtension($c));
 	$view->addExtension(new PathExtension());
+	$view->addExtension(new ManifestExtension($c));
 	return $view;
 };

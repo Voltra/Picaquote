@@ -48,14 +48,32 @@ class Auth extends Action{
 			$this->container[$this->containerKey] = null;
 	}
 
+	protected function sessionHasValue(): bool{
+		if(!$this->session->exists($this->sessionKey))
+			return false;
+
+		$v = $this->session->get($this->sessionKey);
+
+		return !(is_null($v) || empty($v));
+	}
+
+	protected function containerHasValue(): bool{
+		if(!$this->container->has($this->containerKey))
+			return false;
+
+		$v = $this->container->get($this->containerKey);
+
+		return !(is_null($v) || empty($v));
+	}
+
 	/**
 	 * Syncs the container state's with the session's
 	 */
 	protected function syncContainerAndSession(){
-		if($this->session->exists($this->sessionKey))
+		if($this->sessionHasValue())
 			//always sync in case of user hotswap
 			$this->container[$this->containerKey] = User::find($this->session->get($this->sessionKey));
-		else if($this->container->has($this->containerKey))
+		else if($this->containerHasValue())
 			$this->session->set($this->sessionKey, $this->container->get($this->containerKey)->id);
 	}
 
@@ -66,9 +84,7 @@ class Auth extends Action{
 	 */
 	public function isLoggedIn(): bool{
 		$this->syncContainerAndSession();
-		return $this->container->has($this->containerKey)
-		&& !empty($this->container->get($this->containerKey))
-		&& !is_null($this->container->get($this->container));
+		return $this->containerHasValue();
 	}
 
 	/**

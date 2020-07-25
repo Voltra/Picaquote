@@ -75,7 +75,13 @@ config.resolve.extensions = [
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //// ENTRIES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-config.entry["demo"] = "@js/mainDemo.js";
+config.entry["home"] = "@js/home.js";
+//auth
+config.entry["login"] = "@js/auth/login.js";
+config.entry["register"] = "@js/auth/register.js";
+
+//admin
+config.entry["admin/dashboard"] = "@js/admin/dashboard.js";
 
 
 
@@ -85,6 +91,7 @@ config.entry["demo"] = "@js/mainDemo.js";
 config.output["path"] = path("public_html/assets/js/");
 config.output["filename"] = dev ? "[name].bundle.js" : "[name].[chunkhash:8].bundle.js";
 config.output["publicPath"] = "/assets/js/";
+config.output["chunkFilename"] = "[name].chunk.js";
 
 
 
@@ -166,8 +173,8 @@ if(!dev){
 		dry: false,
         exclude: ["globals", "globals/*", "globals/*.*"]
 	}));
-	config.plugins.push(new ManifestPlugin());
 }
+config.plugins.push(new ManifestPlugin());
 
 
 

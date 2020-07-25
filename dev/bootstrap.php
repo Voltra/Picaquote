@@ -19,11 +19,12 @@ session_start();
 foreach(require_once(Path::dev("/container/actions.php")) as $class => $factory)
 	$container[$class] = $factory;
 
-foreach(["session", "flash", "view"] as $item)
+foreach(["session", "flash", "manifest", "view"] as $item)
 	$container[$item] = require_once(Path::dev("/container/{$item}.php"));
 
 $app->add(new \Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware($app))
 	->add(new \Slim\Middleware\Session($config["session"]))
+	->add(\App\Middlewares\CurrentRoute::from($container))
 	->add(App\Middlewares\Csrf::from($container))
 	->add(App\Middlewares\Auth::from($container));
 

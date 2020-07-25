@@ -10,12 +10,15 @@
 		{% block css %}{% endblock %}
 
 		{% include module("globalJS") %}
+		{% include module("manifest") %}
 		{% block js %}{% endblock %}
 	</head>
 	<body>
 		{% include module("flash") %}
 		<div id="app">
-			{% block body %}{% endblock %}
+			<app>
+				{% block body %}{% endblock %}
+			</app>
 		</div>
 	</body>
 </html>

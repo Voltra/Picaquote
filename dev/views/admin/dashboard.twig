@@ -7,4 +7,26 @@
 {% block css %}{% endblock %}
 
 {% block body %}
+	{% for quote in quotes %}
+		<form method="POST" action="{{ path_for("admin.editQuote", {"id": quote.id}) }}">
+			<pre>{{ quote.id }}</pre>
+			<label for="quote"></label>
+			<textarea name="quote" cols="80">{{ quote.content }}</textarea>
+			{% if quote.subtext %}
+				<textarea name="subtext" cols="80">{{ quote.subtext }}</textarea>
+			{% endif %}
+			<button type="submit">Edit</button>
+
+			{{ csrf_input() }}
+		</form>
+	{% endfor %}
+
+	<form method="POST" action="{{ path_for("admin.newQuote") }}">
+		<label for="quote">New quote: </label>
+		<textarea name="quote" cols="80" required></textarea>
+		<textarea name="subtext" cols="80"></textarea>
+		<button type="submit">Add</button>
+
+		{{ csrf_input() }}
+	</form>
 {% endblock %}

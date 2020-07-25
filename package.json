@@ -1,8 +1,6 @@
 {
-  "name": "slim-vue-app",
-  "version": "1.0.0",
-  "description": "An application that uses Slim and Vue (with Twig)",
-  "main": "index.js",
+  "name": "picaquote",
+  "description": "A website",
   "scripts": {
     "setup": "npm run setupCLI && npm run setupJS && npm run setupPHP",
     "setupCLI": "go get -u github.com/turnitin/dbmate",
@@ -16,8 +14,7 @@
     "e2e": "nightwatch",
     "test": "npm run testPHP && npm run testJS"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ludwig GUERIN",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -25,7 +22,7 @@
     "@babel/preset-env": "^7.2.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-jsx-v-model": "^2.0.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -41,7 +38,7 @@
     "geckodriver": "^1.14.1",
     "imagemin": "^6.1.0",
     "img-loader": "^3.0.1",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "nightwatch": "^1.0.18",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
@@ -50,20 +47,21 @@
     "vue-loader": "^15.5.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.22",
-    "webpack": "^4.28.4",
+    "webpack": "4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {
-    "vue": "^2.5.22",
-    "vuex": "^3.0.1",
-    "vue-router": "^3.0.2",
-    "sequency": "^0.19.2",
-    "compary": "^0.1.0",
-    "store": "^2.0.12",
-    "db.js": "^0.15.0",
-    "spinner-lord": "^0.2.6",
     "@voltra/json": "^1.2.0",
-    "vanilla_flash": "^2.0.0"
+    "compary": "^0.1.0",
+    "db.js": "^0.15.0",
+    "js-cookie": "^2.2.0",
+    "sequency": "^0.19.2",
+    "spinner-lord": "^0.2.6",
+    "store": "^2.0.12",
+    "vanilla_flash": "^2.0.1",
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.0.1"
   }
 }

@@ -7,15 +7,9 @@
 {% block css %}{% endblock %}
 
 {% block body %}
-	<h1>Hello world!</h1><br/>
-	<h2>Great quotations coming</h2><br/>
-	<blockquote>
-		Here lies the stupidity of a single man, on a single website
-	</blockquote>
-
-	<br/> <br/>
-
-	<blockquote>
-		{{ quote }}
-	</blockquote>
+	{% if quote %}
+		<quote-card content="{{ quote.content }}" subtext="{{ quote.subtext }}"/>
+	{% else %}
+		<quote-card content="Il n'y a rien à voir ici :c" subtext="Ça arrive, c'est comme ça"/>
+	{% endif %}
 {% endblock %}

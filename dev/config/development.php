@@ -4,7 +4,8 @@ return [
 	"settings" => [
 		"name" => "mvea",
 		"debug" => true,
-		"displayErrorDetails" => true
+		"displayErrorDetails" => true,
+		"determineRouteBeforeAppMiddleware" => true,
 	],
 	"views" => [],
 	"csrf" => [
